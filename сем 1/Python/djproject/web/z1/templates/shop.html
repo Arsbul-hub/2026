@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% extends "base.html" %}
+<head>
+
+    <meta charset="UTF-8">
+    {% block head %}
+    <title>Shop</title>
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+{% if product_name != None %}
+{% if product != None %}
+<p>Ваш продукт: </p>
+<p>{{product}}</p>
+{% else %}
+<p>Не найден продукт</p>
+{% endif %}
+{% else %}
+<p>Не указан product_name через запрос</p>
+{% endif %}
+
+<p>Все продукты</p>
+{% for p in products_list %}
+<p>Продукт: {{p}}</p>
+{% endfor %}
+{% endblock %}
+</body>
+</html>
