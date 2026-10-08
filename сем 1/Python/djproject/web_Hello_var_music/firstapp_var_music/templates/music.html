@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% extends "navigator.html" %}
+<head>
+
+    <meta charset="UTF-8">
+    {% block head %}
+    <title>Music</title>
+    {% endblock %}
+</head>
+<body>
+<p>
+    Поиск по музыке:
+    запрос "/music/&lt name &gt"
+    запрос по параметру строки запросв music_name
+</p>
+{% block body %}
+
+{% if music %}
+
+<p>Найдена музыка: </p>
+{% for m in music %}
+
+<p>Песня {{m.song}}</p>
+<p>Исполнитель {{m.artist}}</p>
+<p>Жанр {{m.genre}}</p>
+{% endfor %}
+{% endif %}
+{% endblock %}
+
+</body>
+</html>
